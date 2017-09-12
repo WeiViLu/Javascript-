@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字体的放大缩小</title>
+</head>
+<body>
+	<input type="button" name="" value="-" id="btn1">
+	<input type="button" name="" value="+" id="btn2">
+	<p id="p1">总的来看，平台不断地挖角、主播频频跳槽，看似可以快速地给平台带来流量，但同时也造成了主播身价虚高、平台成本压力增大的负效应。更严重的是，由于挖角和跳槽背后的无序，导致游戏直播行业正在变成诉讼高发地，这无疑是对整个游戏直播生态的一种破坏。</p>
+
+
+
+<script>
+	window.onload=function(){
+		/*
+			JS中不允许出现‘-’
+			font-size    fontSize
+			padding-top	  paddingTop
+		*/
+
+
+		var oBtn1=document.getElementById('btn1');
+		var oBtn2=document.getElementById('btn2');
+		var oP=document.getElementById('p1');
+		var num=15;
+
+		oBtn1.onclick=function(){
+			num=num-2;
+			oP.style.fontSize=num+'px';
+		}
+
+		oBtn2.onclick=function(){
+			num=num+2;
+			oP.style.fontSize=num+'px';
+		}
+	}
+</script>
+</body>
+</html>

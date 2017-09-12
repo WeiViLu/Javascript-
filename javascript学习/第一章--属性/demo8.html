@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>[]的使用</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border:1px solid red;
+		}
+	</style>
+</head>
+<body>
+	请输入属性名称：<input id="attr" type="text">
+	请输入属性值：<input id="val" type="text">
+	<input type="button" name="" value="确定" id="btn1">
+	<div id="div1"></div>
+
+
+	<script>
+		/*
+			JS中允许“.”替换成[]
+		*/
+		var oAttr=document.getElementById('attr');
+		var oVal=document.getElementById('val');
+		var oBtn=document.getElementById('btn1');
+		var oDiv=document.getElementById('div1');
+
+		oBtn.onclick=function(){
+			oDiv.style[oAttr.value]=oVal.value;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性读写注意事项</title>
+</head>
+<body>
+	<img id="img1" src="img/4.jpg" alt="">
+
+	<script>
+		var oImg=document.getElementById('img1');
+
+		oImg.onclick=function(){
+			//alert(oImg.src);
+			//所有的相对路径都不要拿来做判断
+			//颜色值不要拿来做判断！
+			//innerHTML不要拿来做判断
+			if(oImg.src=='img/4.jpg'){
+				oImg.src='img/2.jpg';
+			}
+		} 
+	</script>
+</body>
+</html>

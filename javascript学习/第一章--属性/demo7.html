@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" name="" value="" id="inp1">
+
+<script>
+	var oInp=document.getElementById('inp1');
+
+	oInp.onclick=function(){
+		oInp.type='checkbox';
+
+		//IE6、IE7、IE8不支持会报错
+	}
+	/*
+		技术上：必须能做到掌握兼容性（兼容性问题的解决方案）
+		需求上：商量着来（提供最准确的呈现方案）
+		oDiv.style.styleFloat='left';//IE兼容
+		oDiv.style.cssFloat='left';//非IE兼容
+	*/
+</script>
+</body>
+</html>

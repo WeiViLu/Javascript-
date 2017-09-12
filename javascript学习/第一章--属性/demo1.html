@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉菜单</title>
+	<style>
+		ul {padding:0;margin: 0;}
+		.lis {list-style: none; width: 80px; height: 30px; border:1px solid #333; position: relative;}
+		.lis a {display: block; line-height: 30px; text-align: center; text-decoration: none; color:#000;background: #f1f1f1;}
+		ul ul{padding: 0;margin: 0;width: 140px;border:1px solid #333;position: absolute;top: 30px;left: -1px; background: #ff9;display: none;}
+		ul ul li {text-align: center; line-height: 30px;}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="lis" id="link">
+			<a href="#" >微博</a>
+			<ul id="ul1">
+				<li>私信</li>
+				<li>评论</li>
+				<li>@我</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+<script>
+	// JS中如何获取元素
+	//1、通过ID名称获取 document.getElementById('link')
+	//事件：鼠标事件、键盘事件、系统事件、表单事件、自定义事件
+	//onclick、onmouseover、onmouseout、onmousemove、onmousedown、onmouseup
+	//如何添加事件：元素.onmouseover
+	document.getElementById('link').onmouseover=show;
+	function show(){
+		document.getElementById('ul1').style.display='block';
+		document.getElementById('link').style.background='yellow';
+	}
+	document.getElementById('link').onmouseout=hide;
+	function hide(){
+		document.getElementById('ul1').style.display='none';
+		document.getElementById('link').style.background='#f1f1f1';
+	}
+</script>
+</html>
