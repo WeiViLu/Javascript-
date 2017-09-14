@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+
+<script>
+	   document.body.innerHTML='abc';
+	   document.title='for';
+	   document.body.innerHTML='<input type="button" value="按钮"><input type="button" value="按钮"><input type="button" value="按钮">';
+	   var aBtn=document.getElementsByTagName('input');
+	   console.log(aBtn.length);
+
+	   for(let i=0;i<3;i++){
+	   		aBtn[i].onclick=function(){
+	   			alert(i);
+	   		}
+	   }
+
+</script>
+</body>
+</html>

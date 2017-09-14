@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		li{height:30px; border-bottom:1px solid #333;}
+	</style>
+</head>
+<body>
+	<ul id="list">
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+<script>
+	var aLi=document.getElementById('list').getElementsByTagName('li');
+	var arr=['今天','明天','后天'];
+	//想把长度存起来，否则影响性能
+	var len=aLi.length;
+	for(var i=0;i<len;i++){
+		aLi[i].innerHTML=arr[i];
+	}
+</script>
+</body>
+</html>
