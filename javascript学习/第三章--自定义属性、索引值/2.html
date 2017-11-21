@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+            width: 114px;
+            height: 140px;
+            background: url(normal.png);
+            float: left;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+        window.onload = function() {
+            var aLi = document.getElementsByTagName('li');
+            for (var i = 0; i < aLi.length; i++) {
+                aLi[i].onOff = true;
+                aLi[i].onclick = function() {
+                    if (this.onOff) {
+                        this.style.background = 'url(active.png)';
+                        this.onOff = false;
+                    } else {
+                        this.style.background = 'url(normal.png)';
+                        this.onOff = true;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

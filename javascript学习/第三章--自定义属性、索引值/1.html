@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按钮">
+    <input type="button" value="按钮">
+    <input type="button" value="按钮">
+    <input type="button" value="按钮">
+
+
+    <script>
+        // HTML标签属性、自定义属性
+        window.onload = function() {
+            var aBtn = document.getElementsByTagName('input');
+            aBtn[0].abc = 123; //自定义属性
+
+            for (var i = 0; i < aBtn.length; i++) {
+                aBtn[i].abc = 123;
+                aBtn[i].xyz = true;
+            }
+        }
+    </script>
+</body>
+
+</html>
