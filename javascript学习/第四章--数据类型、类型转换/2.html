@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var a = '100';
+        //alert(a + 100);//'100100'
+
+        // alert(Number(a) + 100);
+
+        var a1 = '   ';
+        // alert(Number(a1));//0
+
+        var a2 = true;
+        //alert(Number(a2)); //tue - 1  false - 0
+
+        var a3 = function() {};
+        //alert(Number(a3));//NaN
+
+        var a4 = [123];
+        // alert(Number(a4)); //123
+
+        var a5 = null;
+        // alert(Number(a5)); //0
+
+        var a6;
+        // alert(Number(a6)); //NaN
+
+        var b = '100px456'
+            //alert(parseInt(b)); //100  从左到右一个一个转遇到非数字截断不再转
+
+        var c = '+200px'
+            // alert(parseInt(c)); //200
+
+        var d = '12.34元'
+            // alert(parseFloat(d)); //12.34
+
+        var num = '200.45'
+        if (parseInt(num) === parseFloat(num)) {
+            alert(num + '是整数');
+        } else {
+            alert(num + '是小数')
+        }
+    </script>
+</body>
+
+</html>

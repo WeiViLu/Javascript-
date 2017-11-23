@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>isNaN实例</title>
+</head>
+
+<body>
+
+    <input type="text"><button>判断输入值是不是数字</button>
+    <!-- 一旦写程序中出现：NaN肯定进行了非法的运算操作，NaN与自己都不相等，NaN的布尔值为false -->
+    <script>
+        // var a = Number('abc');
+        // // alert(typeof(a))
+        // // alert(isNaN(function(){alert(1)})); //true
+        // alert(isNaN('250'));
+        window.onload = function() {
+            var oText = document.getElementsByTagName('input')[0];
+            var oBtn = document.getElementsByTagName('button')[0];
+
+            oBtn.onclick = function() {
+                if (isNaN(oText.value)) {
+                    alert(oText.value + '不是数字');
+                } else {
+                    alert(oText.value + '是数字');
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>
