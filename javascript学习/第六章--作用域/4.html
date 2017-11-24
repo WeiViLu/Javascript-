@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        alert(fn1); //火狐不能对下面的函数进行预解析
+
+        var a = 1;
+
+        function fn1() {
+            alert(123);
+        }
+        if (true) {
+            alert(a);
+        }
+    </script>
+</body>
+
+</html>
