@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id='list'>
+        <li>
+            <button>-</button>
+            <strong>0</strong>
+            <button>+</button> 单价：
+            <em>12.5元</em> 小计：
+            <span>0元</span>
+        </li>
+        <li>
+            <button>-</button>
+            <strong>0</strong>
+            <button>+</button> 单价：
+            <em>10.5元</em> 小计：
+            <span>0元</span>
+        </li>
+        <li>
+            <button>-</button>
+            <strong>0</strong>
+            <button>+</button> 单价：
+            <em>8.5元</em> 小计：
+            <span>0元</span>
+        </li>
+    </ul>
+</body>
+
+<script>
+    window.onload = function() {
+        var aUl = document.getElementById('list');
+        var aLi = document.getElementsByTagName('li');
+
+        for (var i = 0; i < aLi.length; i++) {
+            computed(aLi[i])
+        }
+    }
+
+    function computed(oLi) {
+        var oBtn = oLi.getElementsByTagName('button');
+        var oStrong = oLi.getElementsByTagName('strong')[0];
+        var oEm = oLi.getElementsByTagName('em')[0];
+        var oSpan = oLi.getElementsByTagName('span')[0];
+
+        var count = Number(oStrong.innerHTML); //字符串
+        var price = parseFloat(oEm.innerHTML); //字符串
+
+        var total = 0;
+
+        oBtn[1].onclick = function() {
+            count++;
+            total = count * price;
+            oStrong.innerHTML = count;
+            oSpan.innerHTML = total + '元';
+        }
+
+        oBtn[0].onclick = function() {
+            count--;
+            if (count < 0) {
+                count = 0
+            }
+            total = count * price;
+            oStrong.innerHTML = count;
+            oSpan.innerHTML = total + '元';
+        }
+
+
+    }
+</script>
+
+</html>
