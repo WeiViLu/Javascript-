@@ -30,42 +30,30 @@
         // var timer = null;
 
         oBtn1.onclick = function() {
-            // alert(getStyle(oDiv, 'left'));
-            clearInterval(oDiv.timer);
+            doMove(oDiv, 12, 800);
+        }
 
-            oDiv.timer = setInterval(function() {
-                var speed = parseInt(getStyle(oDiv, 'left')) + 12
+        oBtn2.onclick = function() {
+            doMove(oDiv, -12, 10);
 
-                if (speed > 800) {
-                    speed = 800;
+        }
+
+        function doMove(obj, dir, target) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+                var speed = parseInt(getStyle(oDiv, 'left')) + dir;
+
+                if (speed > target && dir > 0) {
+                    speed = target;
+                }
+                if (speed < target && dir < 0) {
+                    speed = target;
                 }
 
                 oDiv.style.left = speed + 'px';
 
                 if (speed == 800) {
-                    clearInterval(oDiv.timer);
-                    alert(speed);
-                }
-            }, 30);
-
-        }
-
-        oBtn2.onclick = function() {
-            // alert(getStyle(oDiv, 'left'));
-            clearInterval(oDiv.timer);
-
-            oDiv.timer = setInterval(function() {
-                var speed = parseInt(getStyle(oDiv, 'left')) + -12
-
-                if (speed < 10) {
-                    speed = 10;
-                }
-
-                oDiv.style.left = speed + 'px';
-
-                if (speed == 10) {
-                    clearInterval(oDiv.timer);
-                    alert(speed);
+                    clearInterval(obj.timer);
                 }
             }, 30);
 
