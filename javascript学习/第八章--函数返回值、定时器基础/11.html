@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #qq {
+            width: 200px;
+            height: 400px;
+            background: #F9c;
+        }
+        
+        #title {
+            width: 240px;
+            height: 180px;
+            background: #FC6;
+            position: absolute;
+            top: 10px;
+            left: 220px;
+        }
+    </style>
+    <script src='6vv.js'></script>
+</head>
+
+<body>
+    <div id="qq"></div>
+    <div id="title"></div>
+
+    <script>
+        $(function() {
+            var qq = $('qq');
+            var title = $('title');
+            var timer = null;
+
+            qq.onmouseover = show;
+            qq.onmouseout = hide;
+
+            function show() {
+                clearInterval(timer);
+                title.style.display = 'block';
+            }
+
+            function hide() {
+                timer = setInterval(function() {
+                    title.style.display = 'none';
+                }, 1000);
+            }
+        })
+    </script>
+</body>
+
+</html>

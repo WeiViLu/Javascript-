@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="换背景">
+    <input type="button" value="停">
+
+    <script>
+        var aBtn = document.getElementsByTagName('input');
+        var arrUrl = ['img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg'];
+
+        var oBody = document.body;
+        var timer = null;
+        var i = 0;
+        aBtn[0].onclick = function() {
+            clearInterval(timer);
+            timer = setInterval(function() {
+                oBody.style.background = 'url(' + arrUrl[i] + ')';
+                i++;
+                i %= arrUrl.length;
+            }, 1000);
+        }
+        aBtn[1].onclick = function() {
+            clearInterval(timer);
+        }
+    </script>
+</body>
+
+</html>

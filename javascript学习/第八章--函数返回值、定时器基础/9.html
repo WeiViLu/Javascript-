@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: url(img/sina.jpg) no-repeat center 0;
+            text-align: center;
+        }
+        
+        img {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img/miaov.jpg" alt="" id='pic'>
+    <script>
+        window.onload = function() {
+            var pic = document.getElementById('pic');
+
+            setTimeout(function() {
+                pic.style.display = 'inline-block';
+
+                setTimeout(function() {
+                    pic.style.display = 'none';
+                }, 3000)
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>
