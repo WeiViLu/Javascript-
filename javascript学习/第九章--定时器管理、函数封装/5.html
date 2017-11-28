@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>让一排DIV往下掉</title>
+    <script src='domove.js'></script>
+</head>
+
+<body>
+
+    <script>
+        window.onload = function() {
+            var str = '';
+            var len = 20;
+            var timer = null;
+            var aDiv = document.getElementsByTagName('div');
+            var num = 0;
+
+
+            for (var i = 0; i < len; i++) {
+                str += '<div style="width:50px;height:50px;background:red;position:absolute;top:0;left:' + i * 60 + 'px;"></div>'
+                document.body.innerHTML = str;
+
+                document.onclick = function() {
+                    clearInterval(timer);
+
+                    timer = setInterval(function() {
+                        doMove(aDiv[num], 'top', 23, 500);
+                        num++;
+                        if (num === len) {
+                            clearInterval(timer);
+                        }
+                    }, 30);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
