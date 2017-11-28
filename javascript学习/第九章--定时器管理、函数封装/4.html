@@ -19,41 +19,37 @@
 </head>
 
 <body>
-    <input type="button" value="往前" id='btn1'>
-    <input type="button" value="往后" id='btn2'>
+    <input type="button" value="走" id='btn1'>
     <div id='div1'></div>
 
     <script>
         var oBtn1 = document.getElementById('btn1');
-        var oBtn2 = document.getElementById('btn2');
         var oDiv = document.getElementById('div1');
         // var timer = null;
 
         oBtn1.onclick = function() {
-            doMove(oDiv, 12, 800);
+
+            doMove(oDiv, 'left', 12, 900, function() {
+                doMove(oDiv, 'top', 34, 600);
+            });
         }
 
-        oBtn2.onclick = function() {
-            doMove(oDiv, -12, 10);
-
-        }
-
-        function doMove(obj, dir, target) {
+        function doMove(obj, attr, dir, target, endFn) {
+            dir = parseInt(getStyle(obj, attr)) < target ? dir : -dir;
             clearInterval(obj.timer);
             obj.timer = setInterval(function() {
-                var speed = parseInt(getStyle(oDiv, 'left')) + dir;
+                var speed = parseInt(getStyle(oDiv, attr)) + dir;
 
-                if (speed > target && dir > 0) {
-                    speed = target;
-                }
-                if (speed < target && dir < 0) {
+                if (speed > target && dir > 0 || speed < target && dir < 0) {
                     speed = target;
                 }
 
-                oDiv.style.left = speed + 'px';
+                oDiv.style[attr] = speed + 'px';
 
                 if (speed == target) {
                     clearInterval(obj.timer);
+
+                    endFn && endFn(); //回调函数
                 }
             }, 30);
 

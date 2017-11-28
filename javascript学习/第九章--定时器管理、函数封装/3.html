@@ -19,8 +19,8 @@
 </head>
 
 <body>
-    <input type="button" value="往前" id='btn1'>
-    <input type="button" value="往后" id='btn2'>
+    <input type="button" value="往下" id='btn1'>
+    <input type="button" value="往上" id='btn2'>
     <div id='div1'></div>
 
     <script>
@@ -30,27 +30,25 @@
         // var timer = null;
 
         oBtn1.onclick = function() {
-            doMove(oDiv, 12, 800);
+            doMove(oDiv, 'top', 12, 800);
         }
 
         oBtn2.onclick = function() {
-            doMove(oDiv, -12, 10);
+            doMove(oDiv, 'top', 12, 10);
 
         }
 
-        function doMove(obj, dir, target) {
+        function doMove(obj, attr, dir, target) {
+            dir = parseInt(getStyle(obj, attr)) < target ? dir : -dir;
             clearInterval(obj.timer);
             obj.timer = setInterval(function() {
-                var speed = parseInt(getStyle(oDiv, 'left')) + dir;
+                var speed = parseInt(getStyle(oDiv, attr)) + dir;
 
-                if (speed > target && dir > 0) {
-                    speed = target;
-                }
-                if (speed < target && dir < 0) {
+                if (speed > target && dir > 0 || speed < target && dir < 0) {
                     speed = target;
                 }
 
-                oDiv.style.left = speed + 'px';
+                oDiv.style[attr] = speed + 'px';
 
                 if (speed == target) {
                     clearInterval(obj.timer);
