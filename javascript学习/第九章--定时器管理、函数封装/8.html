@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 200px;
+        }
+    </style>
+    <script src='domove.js'></script>
 </head>
 
 <body>
@@ -17,7 +26,41 @@
     <img src="img/6.jpg" alt="">
     <img src="img/7.jpg" alt="">
     <img src="img/8.jpg" alt="">
-    <img src="img/9.jpg" alt="">
+
+
+    <script>
+        window.onload = function() {
+            var aImg = document.getElementsByTagName('img');
+
+            for (var i = 0; i < aImg.length; i++) {
+                aImg[i].style.left = 80 + i * 110 + 'px';
+
+                aImg[i].onmouseover = function() {
+                    shake(this, 'top');
+                }
+            }
+        }
+
+        function shake(obj, attr, endFn) {
+            var pos = parseInt(getStyle(obj, attr));
+            var arr = [];
+            var num = 0;
+            for (var i = 20; i > 0; i -= 2) {
+                arr.push(i, -i);
+            }
+            arr.push(0);
+
+            clearInterval(obj.shake);
+            obj.shake = setInterval(function() {
+                obj.style[attr] = pos + arr[num] + 'px';
+                num++;
+                if (num === arr.length) {
+                    clearInterval(obj.shake);
+                    endFn && endFn();
+                }
+            }, 50);
+        }
+    </script>
 </body>
 
 </html>
