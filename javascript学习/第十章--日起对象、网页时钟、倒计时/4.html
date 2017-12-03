@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    距离：<input type="text" name="" id="" value='December 3,2017 21:36:9'><br/> 还剩：
+    <input type="text">
+    <input type="button" value='开始倒计时'>
+    <script>
+        window.onload = function() {
+            /*
+                时间戳
+                var t=Math.floor(new Date().getTime()/1000);
+                alert( Math.floor(t / 86400) + '天' + Math.floor(t % 86400 / 3600) + '时' + Math.floor(t % 86400 % 3600 / 60) + '分' + t % 60 + '秒')
+            */
+
+
+
+            var aInput = document.getElementsByTagName('input');
+            var iNow = null;
+            var iNew = null;
+            var timer = null;
+
+            aInput[2].onclick = function() {
+                clearInterval(timer);
+
+                timer = setInterval(fnTime, 1000);
+            }
+
+            function fnTime() {
+                iNow = new Date();
+                iNew = new Date(aInput[0].value);
+                var t = Math.floor((iNew - iNow) / 1000);
+                if (t >= 0) {
+                    var str = Math.floor(t / 86400) + '天' + Math.floor(t % 86400 / 3600) + '时' + Math.floor(t % 86400 % 3600 / 60) + '分' + t % 60 + '秒'
+
+                    aInput[1].value = str;
+                } else {
+                    alert('时间到了，快开始抢购吧！');
+                    clearInterval(timer);
+                }
+
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>
