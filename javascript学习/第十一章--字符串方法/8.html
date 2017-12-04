@@ -33,9 +33,11 @@
             for (var i = 0; i < arr.length; i++) {
                 arr[i] = `<span style='background:${arrColor[i%arrColor.length]}';>${arr[i]}</span>`
             }
-
-            oDiv.innerHTML = arr.join('');
+            arr.push('<br>')
+            oDiv.innerHTML += arr.join('');
         }
+
+
     }
 </script>
 

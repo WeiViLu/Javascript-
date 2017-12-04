@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p {
+            border: 10px solid #ccc;
+            background: #ffc;
+            width: 400px;
+            padding: 20px;
+            font-size: 16px;
+            font-family: 微软雅黑;
+        }
+        
+        span {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text">
+    <input type="text">
+    <input type="button" value="替换">
+
+    <p>本文主要针对ES6做一个简要介绍。 主要译自： http://webapplog.com/ES6/comment-page-1/。也许你还不知道ES6是什么, 实际上, 它是一种新的javascript规范。在这个大家都很忙碌的时代，如果你想对ES6有一个快速的了解，那么请继续往下读，去了解当今最流行的编程语言JavaScript最新一代的十大特性。</p>
+</body>
+<script>
+    window.onload = function() {
+        var oInp = document.getElementsByTagName('input');
+        var oP = document.getElementsByTagName('p')[0];
+
+        oInp[2].onclick = function() {
+            var str = oInp[0].value;
+            var str1 = oInp[1].value;
+
+            if (!str) {
+                return;
+            }
+            oP.innerHTML = oP.innerHTML.split(str).join('<span>' + str1 + '</span>');
+        }
+    }
+</script>
+
+</html>
